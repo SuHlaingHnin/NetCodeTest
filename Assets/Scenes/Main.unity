@@ -484,6 +484,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1626380701
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (2)
@@ -880,6 +884,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2525086829
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (10)
@@ -1112,6 +1120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3515101266
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (9)
@@ -1692,6 +1704,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1353577056
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (7)
@@ -1754,6 +1770,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1908702887
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (6)
@@ -1816,6 +1836,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1270204661
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (1)
@@ -2133,6 +2157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4038056480
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (4)
@@ -2195,6 +2223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 945030854
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (8)
@@ -2257,6 +2289,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3429739349
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (5)
@@ -2513,6 +2549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1561386953
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup
@@ -2619,6 +2659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 671395605
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (11)
@@ -2681,6 +2725,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404671858}
     m_Modifications:
+    - target: {fileID: 2832754102909736903, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3044715379
+      objectReference: {fileID: 0}
     - target: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       propertyPath: m_Name
       value: Pickup (3)
@@ -2884,10 +2932,15 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1995296417}
-    PlayerPrefab: {fileID: 2553666209376675004, guid: 85aff11551e9a0c4ab5a76c0f97333a6, type: 3}
+    PlayerPrefab: {fileID: 9072386050377766596, guid: 1329e0528a901b543924a1a8b03e62b5, type: 3}
     NetworkPrefabs:
     - Override: 0
-      Prefab: {fileID: 2553666209376675004, guid: 85aff11551e9a0c4ab5a76c0f97333a6, type: 3}
+      Prefab: {fileID: 9072386050377766596, guid: 1329e0528a901b543924a1a8b03e62b5, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 4265578634321696328, guid: 6466653c0ce8dec40a1e1c5ce96554f1, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}

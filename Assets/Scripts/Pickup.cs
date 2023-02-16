@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private NetworkObject m_SpawnedNetworkObject;
+
+    //public override void OnNetworkSpawn()
+    //{
+    //    enabled = IsServer;
+
+    //    if (!enabled) return;
+
+    //    m_SpawnedNetworkObject = transform.GetComponent<NetworkObject>();
+    //    m_SpawnedNetworkObject.Spawn();
+    //}
+
+    public override void OnNetworkDespawn()
     {
-        
+        gameObject.SetActive(false);
+        base.OnNetworkDespawn();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        //GameObject go = Instantiate(pickUpPrefab, Vector3.zero, Quaternion.identity);
+        //if(NetworkManager.Singleton.IsServer)
+        //    transform.GetComponent<NetworkObject>().Spawn();
+    }
+
+    public void Spawn(bool destroyWithScene)
+    {
+        if (IsServer && !IsSpawned)
+        {
+            gameObject.SetActive(true);
+            NetworkObject.Spawn(destroyWithScene);
+        }
     }
 }

@@ -34,7 +34,16 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (collision.transform.CompareTag("Pickup"))
         {
-            collision.gameObject.SetActive(false);
+            NetworkObject pickup = collision.gameObject.GetComponent<NetworkObject>();
+
+            if (NetworkManager.Singleton.IsServer)
+            {
+                pickup.Despawn(false);
+            } else
+            {
+                DespawnPickupServerRpc(pickup);
+            }
+
             UpdateScore();
         }
         else
@@ -47,5 +56,17 @@ public class PlayerMovement : NetworkBehaviour
     {
         score++;
         gameUI.UpdateScoreUI(score);
+    }
+
+    [ServerRpc]
+    void DespawnPickupServerRpc(NetworkObjectReference networkObjectReference)
+    {
+        if(networkObjectReference.TryGet(out NetworkObject pickup)) {
+            pickup.Despawn(false);
+        }
+        else
+        {
+            Debug.LogWarning("Pickup not found to despawn!");
+        }
     }
 }

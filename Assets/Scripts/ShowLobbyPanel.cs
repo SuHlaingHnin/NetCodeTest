@@ -36,8 +36,8 @@ public class ShowLobbyPanel : MonoBehaviour
 
     public void DeleteExistingLobbyDatas()
     {
-        for(int i = 0; i < scrollViewContent.childCount; i++) { 
-            Destroy(scrollViewContent.GetChild(i));
+        for(int i = 0; i < scrollViewContent.childCount; i++) {
+            Destroy(scrollViewContent.GetChild(i).gameObject);
         }
     }
 

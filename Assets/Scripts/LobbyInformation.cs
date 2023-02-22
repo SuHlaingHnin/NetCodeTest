@@ -8,8 +8,12 @@ public class LobbyInformation : MonoBehaviour
     [SerializeField] private TMP_Text PlayerCountText;
     [SerializeField] private TMP_Text HostNameText;
 
+    public Lobby myLobby;
+
     public void AssignData(Lobby lobby)
     {
+        myLobby = lobby;
+
         RoomNameText.text = lobby.Name;
 
         string playerCount = string.Format("{0} / {1}", lobby.Players.Count, lobby.MaxPlayers);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Lobbies;
@@ -8,6 +9,8 @@ using UnityEngine;
 
 public class LobbyManager : Singleton<LobbyManager>
 {
+    private Lobby currentLobby;
+
     public override async void Awake()
     {
         try
@@ -73,19 +76,41 @@ public class LobbyManager : Singleton<LobbyManager>
 
     }
 
-    public async void CreateLobby(string lobbyName, Action onSuccessCallback = null)
+    public async Task CreateLobby(string lobbyName, Action onSuccessCallback = null, Action onFailCallback = null)
     {
         //string lobbyName = "new lobby";
         int maxPlayers = 4;
         CreateLobbyOptions options = new CreateLobbyOptions();
         options.IsPrivate = false;
 
-        Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+        try
+        {
+            currentLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+            
+            if (onSuccessCallback != null) onSuccessCallback();
+        } 
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
 
-        Debug.Log("Created Lobby : " + lobby.Name);
+            if (onFailCallback != null) onFailCallback();
+        }
+    }
 
-        if (onSuccessCallback != null) onSuccessCallback();
-        //GetLobbies();
+    public async Task JoinLobbyById(string lobbyId, Action onSuccessCallback = null, Action onFailCallback = null)
+    {
+        try
+        {
+            await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
+
+            if (onSuccessCallback != null) onSuccessCallback();
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+
+            if(onFailCallback != null) onFailCallback();
+        }
     }
 
     public async void GetLobbies(Action<List<Lobby>> onSuccessCallback = null)

@@ -13,17 +13,14 @@ public class LobbyManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        createLobbyPanel.HidePanel();
-        showLobbyPanel.HidePanel();
-
         createLobbyButton.onClick.AddListener(() =>
         {
-            createLobbyPanel.ShowPanel();
+            createLobbyPanel.TogglePanel();
             showLobbyPanel.HidePanel();
         });
 
         showLobbyButton.onClick.AddListener(() => {
-            showLobbyPanel.ShowPanel();
+            showLobbyPanel.TogglePanel();
             createLobbyPanel.HidePanel();
         });
     }

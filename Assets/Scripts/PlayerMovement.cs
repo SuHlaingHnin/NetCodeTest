@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -38,7 +35,7 @@ public class PlayerMovement : NetworkBehaviour
 
             if (NetworkManager.Singleton.IsServer)
             {
-                pickup.Despawn(false);
+                DespawnPickup(pickup);
             } else
             {
                 DespawnPickupServerRpc(pickup);
@@ -62,11 +59,18 @@ public class PlayerMovement : NetworkBehaviour
     void DespawnPickupServerRpc(NetworkObjectReference networkObjectReference)
     {
         if(networkObjectReference.TryGet(out NetworkObject pickup)) {
-            pickup.Despawn(false);
+            DespawnPickup(pickup);
         }
         else
         {
             Debug.LogWarning("Pickup not found to despawn!");
         }
+    }
+
+    void DespawnPickup(NetworkObject pickup)
+    {
+        pickup.Despawn(false);
+
+        PickupManager.Instance.RemovePickupFromList(pickup.transform);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LobbyManagerUI : MonoBehaviour
+public class LobbyManagerUI : UIBase
 {
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button showLobbyButton;
@@ -16,13 +16,19 @@ public class LobbyManagerUI : MonoBehaviour
         createLobbyButton.onClick.AddListener(() =>
         {
             createLobbyPanel.TogglePanel();
-            showLobbyPanel.HidePanel();
+            showLobbyPanel.Close();
         });
 
         showLobbyButton.onClick.AddListener(() => {
             showLobbyPanel.TogglePanel();
-            createLobbyPanel.HidePanel();
+            createLobbyPanel.Close();
         });
+    }
+
+    private void Start()
+    {
+        showLobbyPanel.Close();
+        createLobbyPanel.Close();
     }
 
 }

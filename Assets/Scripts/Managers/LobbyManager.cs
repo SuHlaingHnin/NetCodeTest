@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Netcode;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Lobbies;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 public class LobbyManager : Singleton<LobbyManager>
 {
-    private Lobby currentLobby;
+    //private Lobby currentLobby;
 
     public override async void Awake()
     {
@@ -85,8 +86,12 @@ public class LobbyManager : Singleton<LobbyManager>
 
         try
         {
-            currentLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
-            
+            await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+
+            NetworkManager.Singleton.StartHost();
+
+            //Debug.Log("Created Lobby : " + currentLobby.Name);
+
             if (onSuccessCallback != null) onSuccessCallback();
         } 
         catch (LobbyServiceException e)
@@ -102,6 +107,8 @@ public class LobbyManager : Singleton<LobbyManager>
         try
         {
             await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
+
+            NetworkManager.Singleton.StartClient();
 
             if (onSuccessCallback != null) onSuccessCallback();
         }
@@ -141,7 +148,7 @@ public class LobbyManager : Singleton<LobbyManager>
 
             if (onSuccessCallback != null) onSuccessCallback(response.Results);
 
-            //List<Lobby> lobbiesList = lobbies.Results;
+            //List<Lobby> lobbiesList = response.Results;
 
             //foreach (Lobby lobby in lobbiesList)
             //{

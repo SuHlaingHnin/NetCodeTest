@@ -1,18 +1,24 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CreateLobbyPanel : MonoBehaviour
+public class CreateLobbyPanel : UIBase
 {
     [SerializeField] private TMP_InputField lobbyNameInput;
     [SerializeField] private Button createButton;
 
+    [SerializeField] private LobbyManagerUI lobbyManagerUI;
+
     private void Awake()
     {
-        createButton.onClick.AddListener(OnCreateLobby);
+        createButton.onClick.AddListener(async () =>
+        {
+            await OnCreateLobby();
+        });
     }
 
-    private async void OnCreateLobby()
+    private async Task OnCreateLobby()
     {
         string input = lobbyNameInput.text;
 
@@ -28,7 +34,9 @@ public class CreateLobbyPanel : MonoBehaviour
     private void OnCreateLobbySuccess()
     {
         createButton.interactable = true;
-        this.HidePanel();
+
+        lobbyManagerUI.Close();
+        this.Close();
     }
 
     private void OnCreateLobbyFail()
@@ -46,15 +54,5 @@ public class CreateLobbyPanel : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
-    }
-
-    public void ShowPanel()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void HidePanel()
-    {
-        gameObject.SetActive(false);
     }
 }

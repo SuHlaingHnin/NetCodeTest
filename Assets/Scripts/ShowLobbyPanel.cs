@@ -5,18 +5,23 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowLobbyPanel : MonoBehaviour
+public class ShowLobbyPanel : UIBase
 {
     [SerializeField] private GameObject lobbyInformationPrefab;
     [SerializeField] private Transform scrollViewContent;
 
     [SerializeField] private Button joinButton;
 
+    [SerializeField] private LobbyManagerUI lobbyManagerUI;
+
     private LobbyTabGroup lobbyTabGroup;
 
     private void Awake()
     {
-        joinButton.onClick.AddListener(OnJoinLobby);
+        joinButton.onClick.AddListener(async () =>
+        {
+            await OnJoinLobby();
+        });
     }
 
     private void Start()
@@ -24,7 +29,7 @@ public class ShowLobbyPanel : MonoBehaviour
         lobbyTabGroup = scrollViewContent.GetComponent<LobbyTabGroup>();
     }
 
-    private async void OnJoinLobby()
+    private async Task OnJoinLobby()
     {
         joinButton.interactable = false;
 
@@ -36,7 +41,9 @@ public class ShowLobbyPanel : MonoBehaviour
     private void OnJoinLobbySuccess()
     {
         joinButton.interactable = true;
-        HidePanel();
+
+        lobbyManagerUI.Close();
+        this.Close();
     }
 
     private void OnJoinLobbyFail()
@@ -51,7 +58,7 @@ public class ShowLobbyPanel : MonoBehaviour
 
     public void ShowLobbyDatas(List<Lobby> lobbies)
     {
-        Debug.Log(lobbies.Count);
+        Debug.Log("Lobby Count : " + lobbies.Count);
 
         if(scrollViewContent.childCount > 0)
         {
@@ -82,17 +89,8 @@ public class ShowLobbyPanel : MonoBehaviour
         else
         {
             gameObject.SetActive(true);
+
+            ShowLobbies();
         }
-    }
-
-    public void ShowPanel()
-    {
-        gameObject.SetActive(true);
-        ShowLobbies();
-    }
-
-    public void HidePanel()
-    {
-        gameObject.SetActive(false);
     }
 }

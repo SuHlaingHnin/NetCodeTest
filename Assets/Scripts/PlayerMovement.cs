@@ -5,14 +5,12 @@ public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed;
 
-    private GameUI gameUI;
     private Rigidbody rb;
 
-    int score;
+    //int score;
 
     private void Start()
     {
-        gameUI = GameObject.Find("GameUI").GetComponent<GameUI>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -41,18 +39,12 @@ public class PlayerMovement : NetworkBehaviour
                 DespawnPickupServerRpc(pickup);
             }
 
-            UpdateScore();
+            GameManager.Instance.UpdateScore();
         }
         else
         {
             Debug.Log("No Collison Enter");
         }
-    }
-
-    private void UpdateScore()
-    {
-        score++;
-        gameUI.UpdateScoreUI(score);
     }
 
     [ServerRpc]

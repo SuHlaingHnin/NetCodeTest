@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Services.Lobbies.Models;
@@ -22,6 +21,12 @@ public class ShowLobbyPanel : UIBase
         {
             await OnJoinLobby();
         });
+    }
+
+    public override async void OnShowAsync(params object[] objects)
+    {
+        base.OnShowAsync(objects);
+        await ShowLobbies();
     }
 
     private void Start()
@@ -51,16 +56,11 @@ public class ShowLobbyPanel : UIBase
         joinButton.interactable = true;
     }
 
-    public void ShowLobbies()
+    public async Task ShowLobbies()
     {
-        LobbyManager.Instance.GetLobbies(ShowLobbyDatas);
-    }
+        List<Lobby> lobbies = await LobbyManager.Instance.GetLobbies();
 
-    public void ShowLobbyDatas(List<Lobby> lobbies)
-    {
-        Debug.Log("Lobby Count : " + lobbies.Count);
-
-        if(scrollViewContent.childCount > 0)
+        if (scrollViewContent.childCount > 0)
         {
             DeleteExistingLobbyDatas();
         }
@@ -88,9 +88,7 @@ public class ShowLobbyPanel : UIBase
         }
         else
         {
-            gameObject.SetActive(true);
-
-            ShowLobbies();
+            OnShowAsync();
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class UIBase : MonoBehaviour
@@ -13,7 +11,7 @@ public abstract class UIBase : MonoBehaviour
         }
     }
 
-    public virtual void OnShow(object[] objects)
+    public virtual void OnShowAsync(params object[] objects)
     {
 
     }
@@ -22,7 +20,7 @@ public abstract class UIBase : MonoBehaviour
     {
         if (Opened) return;
         gameObject.SetActive(true);
-        OnShow(objects);
+        OnShowAsync(objects);
     }
 
     public void Close()

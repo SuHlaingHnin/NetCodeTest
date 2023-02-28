@@ -120,7 +120,7 @@ public class LobbyManager : Singleton<LobbyManager>
         }
     }
 
-    public async void GetLobbies(Action<List<Lobby>> onSuccessCallback = null)
+    public async Task<List<Lobby>> GetLobbies()
     {
         try
         {
@@ -146,7 +146,9 @@ public class LobbyManager : Singleton<LobbyManager>
 
             QueryResponse response = await Lobbies.Instance.QueryLobbiesAsync(options);
 
-            if (onSuccessCallback != null) onSuccessCallback(response.Results);
+            return response.Results;
+
+            //if (onSuccessCallback != null) onSuccessCallback(response.Results);
 
             //List<Lobby> lobbiesList = response.Results;
 
@@ -159,6 +161,6 @@ public class LobbyManager : Singleton<LobbyManager>
         {
             Debug.Log(e);
         }
-
+        return null;
     }
 }

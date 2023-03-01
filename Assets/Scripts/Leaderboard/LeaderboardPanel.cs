@@ -12,12 +12,18 @@ public class LeaderboardPanel : UIBase
 
     private void Awake()
     {
-        backButton.onClick.AddListener(Close);
+        backButton.onClick.AddListener(() =>
+        {
+            Debug.Log("Closing Leaderboard Panel");
+            gameObject.SetActive(false);
+        });
     }
 
     public override async void OnShowAsync(params object[] objects)
     {
         base.OnShowAsync(objects);
+
+        Debug.Log("OnShowAsync");
 
         await ShowPlayerScore();
     }
@@ -30,6 +36,12 @@ public class LeaderboardPanel : UIBase
     public async Task ShowPlayerScore()
     {
         List<Lobby> lobbies = await LobbyManager.Instance.GetLobbies();
+
+        if(lobbies == null)
+        {
+            Debug.Log("There are no lobbies to show!");
+            return;
+        }
 
         if (scrollViewContent.childCount > 0)
         {

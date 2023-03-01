@@ -31,7 +31,7 @@ public class PickupManager : Singleton<PickupManager>
 
         if(pickupList.Count == 0)
         {
-            GameManager.Instance.GameFinish();
+            GameManager.Instance.gameState = GAME_STATE.FINISH;
         }
     }
 }

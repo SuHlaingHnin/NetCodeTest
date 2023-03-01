@@ -35,6 +35,8 @@ public class CreateLobbyPanel : UIBase
     {
         createButton.interactable = true;
 
+        GameManager.Instance.gameState = GAME_STATE.INGAME;
+
         lobbyManagerUI.Close();
         this.Close();
     }

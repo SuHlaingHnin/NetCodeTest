@@ -47,6 +47,8 @@ public class ShowLobbyPanel : UIBase
     {
         joinButton.interactable = true;
 
+        GameManager.Instance.gameState = GAME_STATE.INGAME;
+
         lobbyManagerUI.Close();
         this.Close();
     }
@@ -59,6 +61,12 @@ public class ShowLobbyPanel : UIBase
     public async Task ShowLobbies()
     {
         List<Lobby> lobbies = await LobbyManager.Instance.GetLobbies();
+
+        if(lobbies == null)
+        {
+            Debug.Log("There are no lobbies to show!");
+            return;
+        }
 
         if (scrollViewContent.childCount > 0)
         {
@@ -88,7 +96,7 @@ public class ShowLobbyPanel : UIBase
         }
         else
         {
-            OnShowAsync();
+            Show();
         }
     }
 }

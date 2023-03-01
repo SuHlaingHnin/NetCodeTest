@@ -150,12 +150,12 @@ public class LobbyManager : Singleton<LobbyManager>
 
             //if (onSuccessCallback != null) onSuccessCallback(response.Results);
 
-            //List<Lobby> lobbiesList = response.Results;
+            List<Lobby> lobbiesList = response.Results;
 
-            //foreach (Lobby lobby in lobbiesList)
-            //{
-            //    Debug.Log(lobby.Name);
-            //}
+            foreach (Lobby lobby in lobbiesList)
+            {
+                Debug.Log(lobby.Name);
+            }
         }
         catch (LobbyServiceException e)
         {

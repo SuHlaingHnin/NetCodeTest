@@ -12,8 +12,9 @@ public class LeaderboardItem : MonoBehaviour
     {
         for (int i = 0; i < lobby.Players.Count; i++)
         {
-            RankText.text = i.ToString();
-            PlayerNameText.text = "Player " + i;
+            int rank = i + 1;
+            RankText.text = rank.ToString();
+            PlayerNameText.text = "Player " + rank;
 
             ScoreText.text = i.ToString();
         }
